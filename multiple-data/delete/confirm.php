@@ -15,6 +15,7 @@
   	
   	<h2>Delete</h2> <hr/><br/>
   	
+  	<p>
   	<?php
   	  $deleteDataText = "Are you sure you want to delete?: <br/><br/>";
   	  
@@ -24,17 +25,18 @@
       
       $deleteDataText .= "<br/> <li> <b>Gender: </b>";
       if ( $gender == "male" ){
-	    $deleteDataText .= "Male";
-	  } else {
-	    $deleteDataText .= "Female";
-	  }
+	      $deleteDataText .= "Male";
+	    } else if ( $gender == "female" ){
+	      $deleteDataText .= "Female";
+	    } else { $deleteDataText .= "ERROR!"; }
 		
-	  $deleteDataText .= "<br/> <li> <b>Age: </b>" . $age . " year(s) old";
-	  $deleteDataText .= "<br/> <li> <b>Email: </b>" . $email . "<br/>";
-	  $deleteDataText .= "</ul>";
+	    $deleteDataText .= "<br/> <li> <b>Age: </b>" . $age . " year(s) old";
+	    $deleteDataText .= "<br/> <li> <b>Email: </b>" . $email . "<br/>";
+	    $deleteDataText .= "</ul>";
   	    
   	  echo $deleteDataText;
   	?>
+  	</p>
   	
     <a href="delete.php"> <input type="button" value="Yes"/> </a>
     <a href="../"> <input type="button" value="No"/> </a>

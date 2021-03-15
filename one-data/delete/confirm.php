@@ -18,7 +18,7 @@
   	?>
   	
     <a href="delete.php"> <input type="button" value="Yes"/> </a>
-    <a href="index.html"> <input type="button" value="No"/> </a>
+    <a href="../"> <input type="button" value="No"/> </a>
   	
   </body>
 

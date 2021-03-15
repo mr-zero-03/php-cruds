@@ -19,31 +19,29 @@
 		
     <p> 
 	  <?php
-	    
-	    $dataSentText = "The data you sent was: <br/><br/>";
-	    $dataSentText .= "<ul>";
-		$dataSentText .= "<li> <b>Name: </b>" . $name;
+	      $dataSentText = "The data you sent was: <br/><br/>";
+	      $dataSentText .= "<ul>";
+		    $dataSentText .= "<li> <b>Name: </b>" . $name;
 		
-		$dataSentText .= "<br/> <li> <b>Gender: </b>";
-		if ( $gender == "male" ){
-		  $dataSentText .= "Male";
-		} else {
-		  $dataSentText .= "Female";
-		}
+		    $dataSentText .= "<br/> <li> <b>Gender: </b>";
+		    if ( $gender == "male" ){
+		      $dataSentText .= "Male";
+		    } else if ( $gender == "female" ){
+		      $dataSentText .= "Female";
+		    } else { $dataSentText .= "ERROR!"; }
 		
-		$dataSentText .= "<br/> <li> <b>Age: </b>" . $age . " year(s) old";
-		$dataSentText .= "<br/> <li> <b>Email: </b>" . $email . "<br/><br/><br/></ul>";
+		    $dataSentText .= "<br/> <li> <b>Age: </b>" . $age . " year(s) old";
+		    $dataSentText .= "<br/> <li> <b>Email: </b>" . $email . "<br/><br/><br/></ul>";
 				
-	    if( file_exists( $filename ) ){
+	      if( file_exists( $filename ) ){
           $dataSentText .= "The data was sent before, delete or update it";
-      	} else {
+        } else {
       	  $data = $name.",".$gender.",".$age.",".$email;
        	  file_put_contents( $filename, $data );
           $dataSentText .= "The data was sent correctly";
-      	}
+        }
       	
-        echo $dataSentText;
-      	
+        echo $dataSentText;   	
       ?>
     </p>
     

@@ -19,20 +19,19 @@
   	       
   	    $showDataText = "The data you sent was: <br/><br/>"; 
   	    $showDataText .= "<ul>";
-		$showDataText .= "<li> <b>Name: </b>" . $name;
+		    $showDataText .= "<li> <b>Name: </b>" . $name;
 		
-		$showDataText .= "<br/> <li> <b>Gender: </b>";
-		if ( $gender == "male" ){
-		  $showDataText .= "Male";
-		} else {
-		  $showDataText .= "Female";
-		}
+		    $showDataText .= "<br/> <li> <b>Gender: </b>";
+		    if ( $gender == "male" ){
+		      $showDataText .= "Male";
+		    } else if ( $gender == "female" ){
+		      $showDataText .= "Female";
+		    } else { $showDataText .= "ERROR!"; }
 		
-		$showDataText .= "<br/> <li> <b>Age: </b>" . $age . " year(s) old";
-		$showDataText .= "<br/> <li> <b>Email: </b>" . $email . "<br/></ul>";
+		    $showDataText .= "<br/> <li> <b>Age: </b>" . $age . " year(s) old";
+		    $showDataText .= "<br/> <li> <b>Email: </b>" . $email . "<br/></ul>";
   	    
   	    echo $showDataText;
-  	    
   	  ?>
   	</p>
   	

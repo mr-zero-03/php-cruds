@@ -19,17 +19,20 @@
       $editDataText = "The last data was: <br/>";
       $editDataText .= "<ul>";
       $editDataText .= "<li> <b>Name: </b>" . $oldName;
+      
+      $radioMale=0; $radioFemale=0;
+      
       $editDataText .= "<br/> <li> <b>Gender: </b> ";
       if ( $oldGender == "male" ){
-	    $editDataText .= "Male";
-	    $radioMale = 'checked="checked"';
-	  } else {
-	    $editDataText .= "Female";
-	    $radioFemale = 'checked="checked"';
-	  }
+	      $editDataText .= "Male";
+	      $radioMale = 'checked="checked"';
+	    } else {
+	      $editDataText .= "Female";
+	      $radioFemale = 'checked="checked"';
+	    }
 		
-	  $editDataText .= "<br/> <li> <b>Age: </b>" . $oldAge . " year(s) old";
-	  $editDataText .= "<br/> <li> <b>Email: </b>" . $oldEmail . "<br/></ul>";
+	    $editDataText .= "<br/> <li> <b>Age: </b>" . $oldAge . " year(s) old";
+	    $editDataText .= "<br/> <li> <b>Email: </b>" . $oldEmail . "<br/></ul>";
   	    
   	  echo $editDataText; 
   	  

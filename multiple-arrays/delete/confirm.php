@@ -31,12 +31,13 @@
   	  
   	  <?php
         $sizeUsersList = count( $usersList );
+        $checkboxChecked = "checked=''";
         
         for ( $i=0; $i < $sizeUsersList; $i++ ){  //Making the checkbox analize how many users there are
           $user = $usersList[$i];
           ?>  
             
-            <input type="checkbox" id="<?php echo $i; ?>" name="<?php echo $i; ?>" value="<?php echo $i; ?>">
+            <input type="checkbox" id="<?php echo $i; ?>" name="<?php echo 'user' . $i; ?>" value="<?php echo $i; ?>" <?php if ( isset($_GET['id']) && $_GET['id']==$i ) { echo "checked='' "; } ?> >
             
             <label for="<?php echo $i; ?>"> 
               <?php 
@@ -49,7 +50,7 @@
           }
       ?>
   	  
-  	  <a href="delete.php"> <input type="button" value="Delete"/> </a>
+  	  <input type="submit" value="Delete"/>
       <a href="../"> <input type="button" value="No, go back"/> </a>
   	</form>
 
@@ -61,7 +62,7 @@
   	  function selectAllCheckbox(){
   	    for ( let i=0; i<=sizeUsersList; i++ ){
           if ( formElement[i].type == "checkbox" ) {
-            formElement[i].checked = formElement[0].checked ; 
+            formElement[i].checked = formElement['selectAll'].checked ; 
           }  
   	    }
   	  }

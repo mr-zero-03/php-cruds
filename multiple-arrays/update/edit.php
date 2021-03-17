@@ -61,7 +61,7 @@
   	
       $editDataText = "The last data was: <br/><br/>";
       $editDataText .= "*If you want to see the full information of every user ";
-      $editDataText .= '<a href="../read/show.php">go to show data</a>';
+      $editDataText .= '<a href="../read/list.php">go to show data</a>';
       
       $sizeUsersList = count( $oldUsersList );
   	  

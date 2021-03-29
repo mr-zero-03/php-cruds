@@ -1,10 +1,6 @@
 <?php
   
-  require '../read/read.php';
-  
-  $jsonData = file_get_contents( $filename );
-  $usersList = json_decode( $jsonData );
-  $sizeUsersList = count( $usersList );
+  include_once 'users-info.php';
 
   
   function typeUpdatePrintfUsersList( $oldUser, $template, $option ) {
@@ -61,17 +57,19 @@
       $templateName = "../templates/users-list/short-list.template";
     }    
     $template = file_get_contents( $templateName );
-    
 
-    if ( $idUser == "all" ){
+
+    if ( $idUser === "all" ){
       $i=0;
     } else {
       $i = $idUser;
       $sizeUsersList = $idUser + 1;
     } 
     
+    
     $replacedText = "";
     for ( ; $i < $sizeUsersList; $i++ ) {
+      
       $usersListReplace = $usersList;
       
       if ( $type == "update" ) { $usersListReplace[$i] = typeUpdatePrintfUsersList( "", "", "array" ); }
@@ -103,7 +101,7 @@
       }
  
       
-        $replacedText .= strtr( $template, $usersListReplace );
+      $replacedText .= strtr( $template, $usersListReplace );
 
 
       if ( ( $type == "list" ) || ( $type == "confirm" ) || ( $type == "update" )) {

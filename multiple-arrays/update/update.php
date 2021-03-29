@@ -1,12 +1,13 @@
 <?php 
 
-  require '../read/read.php';
-  include '../libs/users-list.php';
+  require_once '../read/read.php';
+  include_once '../libs/users-list.php';
+  include_once '../libs/save-user-info.php';
  
   $id = $_POST['selectId'];
   
-  $newUser = array(
-    0 => $_POST['selectId'],
+  $user = array(
+    0 => $id,
     1 => $_POST['name'],
     2 => $_POST['gender'],
     3 => $_POST['age'],
@@ -14,6 +15,7 @@
   );
   
 ?>
+
 
 <html>
 
@@ -30,9 +32,7 @@
 	  <?php
 	    printfUsersList( "long", "update", $id );
 	    
-      $usersList[$id] = $newUser;
-      $jsonData = json_encode( $usersList );
-     	file_put_contents( $filename, $jsonData );
+     	saveUserInfo( $user, "update" );
     ?>
   	
   	<br/><br/>

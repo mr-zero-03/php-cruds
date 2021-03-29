@@ -1,7 +1,7 @@
 <?php
 
-  require 'read.php';
-  include '../libs/users-list.php';
+  require_once 'read.php';
+  include_once '../libs/users-list.php';
   
 ?>
 

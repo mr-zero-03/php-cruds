@@ -1,35 +1,20 @@
 <?php
   
-  $filename = "../data.json";
+  include_once '../libs/users-info.php';
+  include_once '../libs/save-user-info.php';  
   
-  $usersList = array();
-  
-  if ( file_exists( $filename ) ){
-    $getJsonUsersList = file_get_contents( $filename );
-    $usersList = json_decode ( $getJsonUsersList, true );
-  }
-
-
-  $id = count( $usersList );
   $user = array(
-    0 => $id,
+    0 => $sizeUsersList,
     1 => $_POST['name'],
     2 => $_POST['gender'],
     3 => $_POST['age'],
     4 => $_POST['email']
   );
-
-  if ( empty( $usersList ) == true ){
-	  $usersList[0] = $user;
-	} else {
-		array_push( $usersList, $user );
-	}
-			
-	$jsonData = json_encode( $usersList );
-	file_put_contents( $filename, $jsonData );
-   
+	
+	saveUserInfo( $user, "new" ); 
   
-  include '../libs/users-list.php';
+  
+  include_once '../libs/users-list.php';
 
 ?>
 
@@ -40,13 +25,13 @@
   </head>
 
   <body>
-  
+   
     <h2>Data sent</h2> <hr/><br/>
 		
     <p>The data you sent was:</p> <br/>
 	  
     <?php
-      printfUsersList( "long", "new", $id );
+      printfUsersList( "long", "new", $sizeUsersList );
     ?>
     
     <p>The data was sent correctly</p>

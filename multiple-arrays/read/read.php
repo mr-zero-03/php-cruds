@@ -1,11 +1,11 @@
 <?php
 
-  $filename = "../data.json";
+  include_once '../libs/users-info.php';
   
 ?>
 
 <html>
-  <?php if( file_exists( $filename ) == false ){?>
+  <?php if( existsData() == false ){?>
     <head>
       <title>Data empty</title>
     </head>

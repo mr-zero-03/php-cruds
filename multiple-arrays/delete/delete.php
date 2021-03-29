@@ -1,10 +1,11 @@
 <?php
-	require '../read/read.php';
+
+	require_once '../read/read.php';
+	include_once '../libs/users-info.php' ;
+	include_once '../libs/save-user-info.php';
 	
-	$usersDelete = $_GET;
-	
-	$jsonData = file_get_contents($filename);
-  $usersList = json_decode( $jsonData );
+  $usersDelete = $_GET;
+
 ?>
 
 <html>
@@ -26,10 +27,11 @@
         $usersList = array_values($usersList);
         
         $deletedText = "The users with the ID(s): '";
-        foreach ( $_GET as $idDelete ) {
+        foreach ( $usersDelete /*_GET*/ as $idDelete ) {
           $deletedText .= $idDelete . " . ";
         }
         $deletedText .= "' were deleted";
+        
         
         if ( $usersList == null ) {
           unlink( $filename );

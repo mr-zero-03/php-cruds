@@ -1,7 +1,7 @@
 <?php
 
-  require 'read.php';
-  include '../libs/users-list.php';
+  require_once 'read.php';
+  include_once '../libs/users-list.php';
 
 ?>
 
@@ -15,7 +15,8 @@
   	
     <h2>Show data</h2> <hr/><br/>
   	
-    <?php 
+    <?php
+    
       $id;
       
       if ( isset( $_GET['id'] ) ) {

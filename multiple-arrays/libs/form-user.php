@@ -1,16 +1,6 @@
 <?php
   
-  $filename = "../data.json";
-  
-  $usersList = array();
-  $sizeUsersList = 0;
-  
-  if ( file_exists( $filename ) ) {
-    $getJsonUsersList = file_get_contents( $filename );
-    $usersList = json_decode ( $getJsonUsersList, true );
-    
-    $sizeUsersList = count( $usersList );
-  }
+  include_once 'users-info.php';
   
 ?>
 

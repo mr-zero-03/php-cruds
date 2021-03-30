@@ -2,6 +2,7 @@
 
   require_once 'read.php';
   include_once '../libs/users-list.php';
+  include_once '../libs/button.php';
   
 ?>
 
@@ -26,10 +27,9 @@
   	
   	<br/>
   	
-  	<a href="../create/create.php"> <input type="button" value="Create another user"/> </a>
-  	<a href="../update/edit.php"> <input type="button" value="Update data"/> </a>
-    <a href="../delete/confirm.php"> <input type="button" value="Delete data"/> </a>
-    <a href="../"> <input type="button" value="Go back to the menu"/> </a>
+  	<?php
+  	  createButtons( 'create', false, 'update', 'delete', 'menu' );
+  	?>
   	
   </body>
 

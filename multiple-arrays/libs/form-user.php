@@ -1,6 +1,7 @@
 <?php
   
   include_once 'users-info.php';
+  include_once 'button.php';
   
 ?>
 
@@ -90,7 +91,8 @@
       
         <input type="submit" value="Submit"/>
         <input type="reset" value="Reset"/>
-        <a href="../"> <input type="button" value="Go back to the menu"/> </a>
+        
+        <?php createButtons( false, false, false, false, 'menu' ); ?>
     
       </form>
     

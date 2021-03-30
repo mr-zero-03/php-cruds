@@ -3,8 +3,9 @@
 	require_once '../read/read.php';
 	include_once '../libs/users-info.php' ;
 	include_once '../libs/save-user-info.php';
+	include_once '../libs/button.php';
 	
-  $usersDelete = $_GET;
+  $usersDelete = $_REQUEST;
 
 ?>
 
@@ -54,8 +55,10 @@
   	</p>
  
   	<br/>
-  	<a href="../create/create.php"> <input type="button" value="Create"/> </a>
-    <a href="../"> <input type="button" value="Go back to the menu"/> </a>
+  	
+  	<?php
+  	  createButtons( 'create', 'list', false, false, 'menu' );
+  	?>
   	
   </body>
 

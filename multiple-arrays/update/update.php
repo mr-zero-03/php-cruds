@@ -3,6 +3,7 @@
   require_once '../read/read.php';
   include_once '../libs/users-list.php';
   include_once '../libs/save-user-info.php';
+  include_once '../libs/button.php';
  
   $id = $_REQUEST['id'];
   
@@ -31,10 +32,9 @@
   	
   	<br/><br/>
     
-    <a href="../read/list.php"> <input type="button" value="List data"/> </a>
-    <?php echo "<a href='edit.php?id=$id'> <input type='button' value='Update data'/> </a>"; ?>
-    <?php echo "<a href='../delete/confirm.php?id=$id'> <input type='button' value='Delete data'/> </a>"; ?>
-    <a href="../"> <input type="button" value="Go back to the menu"/> </a>
+    <?php
+      createButtons( false, 'list', $id, $id, 'menu' );
+    ?>
   	
   </body>
 

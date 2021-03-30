@@ -1,6 +1,7 @@
 <?php
 
   include_once '../libs/users-info.php';
+  include_once '../libs/button.php';
   
 ?>
 
@@ -16,7 +17,7 @@
     
     <?php 
       if ( isset( $_GET['id'] ) ){
-        $idReceived = $_GET['id'];
+        $id = $_GET['id'];
         
         /*if ( array_key_exists ( $usersList[ $idReceived ] ) == false ){ ?>
           <h3>ERROR</h3> <br/>
@@ -29,10 +30,12 @@
       
         <p>Error, you have not sent data yet</p>
 
-  <?php } ?>
+  <?php 
+      } 
   
-    <br/><br/> <a href="../create/create.php"> <input type="button" value="Create"/> </a>
-    <a href="../"> <input type="button" value="Go back to the menu"/> </a>
+    createButtons( 'create', false, false, false, 'menu' );
+  
+  ?>
   
   </body>  
   

@@ -1,7 +1,8 @@
 <?php
   
   include_once '../libs/users-info.php';
-  include_once '../libs/save-user-info.php';  
+  include_once '../libs/save-user-info.php';
+  include_once '../libs/button.php';
   
   $user = array(
     0 => $sizeUsersList,
@@ -10,6 +11,8 @@
     3 => $_REQUEST['age'],
     4 => $_REQUEST['email']
   );
+  
+  $id = $user[0];
 	
 	saveUserInfo( $user, "new" ); 
   
@@ -40,12 +43,10 @@
 
     
     <br/><br/>
-
-		<a href="../create/create.php"> <input type="button" value="Create another user"/> </a>
-    <a href="../read/list.php"> <input type="button" value="List users"/> </a>
-    <?php echo "<a href='../update/edit.php?id=$user[0]'> <input type='button' value='Update data'/> </a>"; ?>
-    <?php echo "<a href='../delete/confirm.php?id=$user[0]'> <input type='button' value='Delete data'/> </a>"; ?>
-    <a href="../"> <input type="button" value="Go back to the menu"/> </a>
+    
+    <?php
+      createButtons( 'create', 'list', $id, $id, 'menu' );
+    ?>
     
   </body>
 

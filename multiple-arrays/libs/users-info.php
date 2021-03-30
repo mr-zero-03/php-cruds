@@ -21,4 +21,16 @@
     } 
   }
   
+  function getUserByRequest(){
+    $user = array(
+      0 => $_REQUEST['id'],
+      1 => $_REQUEST['name'],
+      2 => $_REQUEST['gender'],
+      3 => $_REQUEST['age'],
+      4 => $_REQUEST['email']
+    );
+    
+    return $user;
+  }
+  
 ?>

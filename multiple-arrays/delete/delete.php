@@ -27,7 +27,7 @@
         $usersList = array_values($usersList);
         
         $deletedText = "The users with the ID(s): '";
-        foreach ( $usersDelete /*_GET*/ as $idDelete ) {
+        foreach ( $usersDelete as $idDelete ) {
           $deletedText .= $idDelete . " . ";
         }
         $deletedText .= "' were deleted";

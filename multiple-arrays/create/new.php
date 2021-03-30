@@ -5,10 +5,10 @@
   
   $user = array(
     0 => $sizeUsersList,
-    1 => $_POST['name'],
-    2 => $_POST['gender'],
-    3 => $_POST['age'],
-    4 => $_POST['email']
+    1 => $_REQUEST['name'],
+    2 => $_REQUEST['gender'],
+    3 => $_REQUEST['age'],
+    4 => $_REQUEST['email']
   );
 	
 	saveUserInfo( $user, "new" ); 
@@ -17,6 +17,8 @@
   include_once '../libs/users-list.php';
 
 ?>
+
+<!DOCTYPE html>
 
 <html>
 

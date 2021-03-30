@@ -22,8 +22,8 @@
         } else if ( $type = "edit" ) { //EDITING AN EXISTING USER, asking for the ID 
       ?>
       
-      <label for="selectId">ID: </label>
-      <select id="selectId" name="selectId" value="" onchange="changingOption();" required>
+      <label for="id">ID: </label>
+      <select id="id" name="id" value="" onchange="changingOption();" required>
         
         <option selected value="">Choose your option</option>
         
@@ -103,7 +103,7 @@
   	  let sizeUsersList = <?php echo $sizeUsersList; ?>;  
   	  let usersList = <?php echo json_encode($usersList) ;?>; //Getting the users list values from PHP to JS using json_encode with the arrays
   	      
-  	  let selectIdObj = document.getElementById("selectId");
+  	  let selectIdObj = document.getElementById("id");
   	  
   	  
   	  if ( selectIdObj.value != "" ) {  	    

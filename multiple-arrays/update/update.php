@@ -4,15 +4,9 @@
   include_once '../libs/users-list.php';
   include_once '../libs/save-user-info.php';
  
-  $id = $_POST['selectId'];
+  $id = $_REQUEST['id'];
   
-  $user = array(
-    0 => $id,
-    1 => $_POST['name'],
-    2 => $_POST['gender'],
-    3 => $_POST['age'],
-    4 => $_POST['email']
-  );
+  $user = getUserByRequest();
   
 ?>
 
@@ -32,7 +26,7 @@
 	  <?php
 	    printfUsersList( "long", "update", $id );
 	    
-     	saveUserInfo( $user, "update" );
+	    saveUserInfo( $user, "update" );
     ?>
   	
   	<br/><br/>

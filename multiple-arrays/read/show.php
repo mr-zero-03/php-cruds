@@ -4,6 +4,15 @@
   include_once '../libs/users-list.php';
   include_once '../libs/button.php';
 
+  $method = $_REQUEST;
+  
+  if ( !array_key_exists("id", $method) || ( !is_numeric ( $method['id'] ) ) ) {
+    include_once '../templates/no-request.php';
+    noRequestSent();
+    
+    die;
+  }
+
 ?>
 
 <html>
@@ -16,15 +25,14 @@
   	
     <h2>Show data</h2> <hr/><br/>
   	
-    <?php
-      $id="error";
+    <?php    
+      $id = $method['id'];
+
+      if ( printfUsersList("long", "show", $id) === false ) { ?>
       
-      if ( isset( $_REQUEST['id'] ) ) {
-        $id = $_REQUEST['id'];
-        printfUsersList( "long", "show", $id );
-  	  } else {
-  	    
-  	  } 	  
+        <p>The user you were waiting to see does not exist</p>
+      
+      <?php }
   	?>
   	
   	<br/>

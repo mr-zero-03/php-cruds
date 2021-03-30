@@ -4,21 +4,23 @@
   include_once '../libs/save-user-info.php';
   include_once '../libs/button.php';
   
-  $user = array(
-    0 => $sizeUsersList,
-    1 => $_REQUEST['name'],
-    2 => $_REQUEST['gender'],
-    3 => $_REQUEST['age'],
-    4 => $_REQUEST['email']
-  );
+  $user = getUserByRequest ( $_POST );
+
+
+  if ( !$user ) {
+    include_once '../templates/no-request.php';
+    noRequestSent();
+    
+    die;
+  }
   
+
   $id = $user[0];
 	
 	saveUserInfo( $user, "new" ); 
-  
-  
+	
   include_once '../libs/users-list.php';
-
+  
 ?>
 
 <!DOCTYPE html>

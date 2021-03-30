@@ -6,42 +6,27 @@
 ?>
 
 <html>
-  
-  <?php if( existsData() == false ) { ?>
+
+  <?php
+    
+    if( !$existsUsers ) { ?>
     
     <head>
-      <title>Data empty</title>
+      <title>ERROR!</title>
     </head>
     
     <body>
     
-    <?php 
-      if ( isset( $_GET['id'] ) ){
-        $id = $_GET['id'];
-        
-        /*if ( array_key_exists ( $usersList[ $idReceived ] ) == false ){ ?>
-          <h3>ERROR</h3> <br/>
-  	      <p>You have to choose the user you want to see</p> <br/><br/>
-        <?php }*/
-      } else {
-    ?>
-    
-        <h2>Data empty!</h2> <hr/><br/>
+      <h2>No file!</h2> <hr/><br/>
+              
+      <p>You have not created your first user yet, firts go ahead and create one</p> <br/>
       
-        <p>Error, you have not sent data yet</p>
-
-  <?php 
-      } 
-  
-    createButtons( 'create', false, false, false, 'menu' );
-  
-  ?>
-  
-  </body>  
-  
+      <?php createButtons( 'create', false, false, false, 'menu' ); ?>
+      
+    </body>
+    
   <?php
     die();
-  }
-  ?>
-  
+  } ?>
+
 </html>

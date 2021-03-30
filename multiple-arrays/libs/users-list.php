@@ -35,90 +35,91 @@
   function printfUsersList( $sizePrintf, $type, $idUser ) {
     global $usersList;
     
-    if ( $idUser === "all" || array_key_exists( $idUser, $usersList ) ) {
+    if ( isset( $usersList ) ) {
+      if ( $idUser === "all" || array_key_exists( $idUser, $usersList ) ) {
     
-      global $sizeUsersList;
+        global $sizeUsersList;
     
-      $templateName="";
-      if ( $sizePrintf == "long" ){
-        $templateName = "../templates/users-list/long-list.template";
-      } else if ( $sizePrintf == "short" ){
-        $templateName = "../templates/users-list/short-list.template";
-      }    
-      $template = file_get_contents( $templateName );
+        $templateName="";
+        if ( $sizePrintf == "long" ){
+          $templateName = "../templates/users-list/long-list.template";
+        } else if ( $sizePrintf == "short" ){
+          $templateName = "../templates/users-list/short-list.template";
+        }    
+        $template = file_get_contents( $templateName );
       
 
-      if ( $idUser === "all" ){
-        $i=0;
-      } else {
-        $i = $idUser;
-        $sizeUsersList = $idUser + 1;
-      } 
+        if ( $idUser === "all" ){
+          $i=0;
+        } else {
+          $i = $idUser;
+          $sizeUsersList = $idUser + 1;
+        } 
     
     
-      $replacedText = "";
-      for ( ; $i < $sizeUsersList; $i++ ) {
-      
-        $usersListCopy = $usersList;
+        $replacedText = "";
+        for ( ; $i < $sizeUsersList; $i++ ) {
         
-        if ( $type == "update" ) { $usersListCopy[$i] = getUserByRequest(); }
-      
-        $genderText = $usersListCopy[$i][2] == "male" ? "Male" : "Female";
-      
-        $usersListReplace = array(
-          '%ID%' => $usersListCopy[$i][0],
-          '%NAME%' => $usersListCopy[$i][1],
-          '%GENDER%' => $genderText,
-          '%AGE%' => $usersListCopy[$i][3],
-          '%EMAIL%' => $usersListCopy[$i][4]
-        );
-      
-
-        if ( ( $type == "list" ) || ( $type == "confirm" ) ) {
-          if ( $type == "list" ) {
-            $replacedText .= '<a href="show.php?id=' . $i . '">';
-          
-          } else if ( $type == "confirm" ) { 
+          $usersListCopy = $usersList;
         
-            $replacedText .= '<input type="checkbox" id="' . $i . '" name="' . $i . '"value="' . $i . '" onclick="checkboxesVerification();"';
-            if ( isset( $_GET['id']) && $_GET['id']==$i ) { $replacedText .= "checked"; }
-            $replacedText .= '>';
-          
-            $replacedText .= '<label for="' . $i . '">';
+          if ( $type == "update" ) { $usersListCopy[$i] = getUserByRequest( $_POST ); }
+      
+          $genderText = $usersListCopy[$i][2] == "male" ? "Male" : "Female";
+      
+          $usersListReplace = array(
+            '%ID%' => $usersListCopy[$i][0],
+            '%NAME%' => $usersListCopy[$i][1],
+            '%GENDER%' => $genderText,
+            '%AGE%' => $usersListCopy[$i][3],
+            '%EMAIL%' => $usersListCopy[$i][4]
+          );
+      
 
+          if ( ( $type == "list" ) || ( $type == "confirm" ) ) {
+            if ( $type == "list" ) {
+              $replacedText .= '<a href="show.php?id=' . $i . '">';
+            
+            } else if ( $type == "confirm" ) { 
+        
+              $replacedText .= '<input type="checkbox" id="' . $i . '" name="' . $i . '"value="on" onclick="checkboxesVerification();"';
+              if ( isset( $_GET['id']) && is_numeric($_GET['id']) && $_GET['id']==$i ) { $replacedText .= "checked"; }
+              $replacedText .= '>';
+          
+              $replacedText .= '<label for="' . $i . '">';
+
+            }
           }
-        }
  
       
-        $replacedText .= strtr( $template, $usersListReplace );
+          $replacedText .= strtr( $template, $usersListReplace );
 
 
-        if ( ( $type == "list" ) || ( $type == "confirm" ) || ( $type == "update" )) {
-          if ( $type == "list" ) {
-            $replacedText .= "</a>";
+          if ( ( $type == "list" ) || ( $type == "confirm" ) || ( $type == "update" )) {
+            if ( $type == "list" ) {
+              $replacedText .= "</a>";
         
-          } else if ( $type == "confirm" ) {
-            $replacedText .= "</label> <br/>";
+            } else if ( $type == "confirm" ) {
+              $replacedText .= "</label> <br/>";
           
-            $replacedText = str_replace( "<li>", "", $replacedText );
-            $replacedText = str_replace( "</li>", "", $replacedText );
+              $replacedText = str_replace( "<li>", "", $replacedText );
+              $replacedText = str_replace( "</li>", "", $replacedText );
         
-          } else if ( $type == "update" ) {
-            $replacedText = typeUpdatePrintfUsersList( $usersList[$i], $usersListCopy[$i], $replacedText );
+            } else if ( $type == "update" ) {
+              $replacedText = typeUpdatePrintfUsersList( $usersList[$i], $usersListCopy[$i], $replacedText );
+            }
+        
           }
-        
+    
         }
-    
-      }
 
-      echo $replacedText;
-    
-    } else {
+        echo $replacedText;
       
+      } else {  //User(s) do(es) not exist
+        return false;  
+      }
+    } else {      
       return false;
-      
-    }
-    
+    } 
   }
 
 ?>

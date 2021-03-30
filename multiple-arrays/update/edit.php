@@ -1,8 +1,20 @@
 <?php
   
+  require_once '../read/read.php';
   include_once '../libs/users-list.php';
-  include_once '../libs/form-user.php';  
-
+  include_once '../libs/form-user.php';
+  
+  $get=0;
+  if ( isset( $_GET['id'] ) ) {
+    $get = 1;
+    if ( !array_key_exists( $_GET['id'], $usersList) ) {
+      include_once '../templates/no-request.php';
+      noRequestSent();
+    
+      die;
+    }
+  }
+  
 ?>
 
 <html>
@@ -37,10 +49,7 @@
   	
 
     <?php
-  	  $get = 0;
-  	  if ( isset( $_GET['id'] ) ) {
-  	    $get = 1;
-  	  }
+  	  
   	?>
   	
     <script type="text/javascript">

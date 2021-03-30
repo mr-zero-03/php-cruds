@@ -5,9 +5,17 @@
   include_once '../libs/save-user-info.php';
   include_once '../libs/button.php';
  
-  $id = $_REQUEST['id'];
+  $user = getUserByRequest ( $_POST );
+
+
+  if ( !$user ) {
+    include_once '../templates/no-request.php';
+    noRequestSent();
+    
+    die;
+  }
   
-  $user = getUserByRequest();
+  $id = $user[0];
   
 ?>
 

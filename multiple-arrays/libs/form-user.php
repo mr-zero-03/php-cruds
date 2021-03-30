@@ -16,10 +16,11 @@
         global $sizeUsersList;
         
         if ( $type == "create" ) { //CREATING A NEW USER, assigning him an ID
-          echo "<b>User ID: </b>" . $sizeUsersList . "<br/>"; 
+          echo "<b>User ID: </b>" . $sizeUsersList . "<br/>"; ?>
         
+          <input type="hidden" name="id" value="<?php echo $sizeUsersList; ?>"> <!--To hide the ID and send using POST-->
         
-        
+        <?php
         } else if ( $type = "edit" ) { //EDITING AN EXISTING USER, asking for the ID 
       ?>
       

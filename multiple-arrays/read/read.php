@@ -1,16 +1,32 @@
 <?php
-  $filename = "../data.json";
-  
-  if( file_exists( $filename ) == false ){
-    
-    $errorText = "<title>Data empty</title>";
-  	$errorText .= "<h2>Data empty!</h2> <hr/><br/>";
-    $errorText .= "Error, you have not sent data yet";
-    $errorText .= '<br/><br/> <a href="../create/create.php"> <input type="button" value="Create"/> </a>';
-    $errorText .= '<a href="../"> <input type="button" value="Go back to the menu"/> </a>';
 
-    echo $errorText;
-		
-    die();
-  }
+  include_once '../libs/users-info.php';
+  include_once '../libs/button.php';
+  
 ?>
+
+<html>
+
+  <?php
+    
+    if( !$existsUsers ) { ?>
+    
+    <head>
+      <title>ERROR!</title>
+    </head>
+    
+    <body>
+    
+      <h2>No file!</h2> <hr/><br/>
+              
+      <p>You have not created your first user yet, firts go ahead and create one</p> <br/>
+      
+      <?php createButtons( 'create', false, false, false, 'menu' ); ?>
+      
+    </body>
+    
+  <?php
+    die();
+  } ?>
+
+</html>

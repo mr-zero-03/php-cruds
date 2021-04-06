@@ -80,13 +80,13 @@
           }
         ?>
 
-        <label for="name">Name: </label> <input type="text" id="name" name="name" value="<?php defaultValue('name'); ?>" required/> <br/><br/>
+        <label for="name">Name: </label> <input type="text" id="name" name="name" value="<?php defaultValue('name'); ?>" placeholder="Name (Without numbers)" required/> <br/><br/>
       
         <input type="radio" id="male" name="gender" value="male" <?php defaultValue('genderM'); ?> required/> <label for="male">Male</label>
         <input type="radio" id="female" name="gender" value="female" <?php defaultValue('genderF'); ?> required/> <label for="female">Female</label> <br/><br/>
   
-        <label for="age">Age: </label> <input type="number" id="age" name="age" value="<?php defaultValue('age'); ?>" required/> <br/><br/>
-        <label for="email">Email: </label> <input type="email" id="email" name="email" value="<?php defaultValue('email'); ?>" required/>
+        <label for="age">Age: </label> <input type="number" id="age" name="age" value="<?php defaultValue('age'); ?>" placeholder="Age" min="0" required/> <br/><br/>
+        <label for="email">Email: </label> <input type="email" id="email" name="email" value="<?php defaultValue('email'); ?>" placeholder="Email" required/>
       
         <br/><br/><br/>
       

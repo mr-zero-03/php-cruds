@@ -7,9 +7,8 @@
   $method = $_REQUEST;
   
   if ( !array_key_exists("id", $method) || ( !is_numeric ( $method['id'] ) ) ) {
-    include_once '../templates/no-request.php';
-    noRequestSent();
-    
+    include_once '../templates/_no-request.php';
+
     die;
   }
 

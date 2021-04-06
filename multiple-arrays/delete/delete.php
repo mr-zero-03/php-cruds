@@ -8,8 +8,7 @@
   $usersDelete = $_REQUEST;
 
   if ( empty($usersDelete) ) {
-    include_once '../templates/no-request.php';
-    noRequestSent();
+    include_once '../templates/_no-request.php';
 
     die;
   }

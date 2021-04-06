@@ -9,8 +9,7 @@
 
 
   if ( !$user ) {
-    include_once '../templates/no-request.php';
-    noRequestSent();
+    include_once '../templates/_no-request.php';
     
     die;
   }

@@ -42,9 +42,9 @@
     
         $templateName="";
         if ( $sizePrintf == "long" ){
-          $templateName = "../templates/users-list/long-list.template";
+          $templateName = "../templates/users-list/_long-list.template";
         } else if ( $sizePrintf == "short" ){
-          $templateName = "../templates/users-list/short-list.template";
+          $templateName = "../templates/users-list/_short-list.template";
         }    
         $template = file_get_contents( $templateName );
       

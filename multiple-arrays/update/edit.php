@@ -8,8 +8,7 @@
   if ( isset( $_GET['id'] ) ) {
     $get = 1;
     if ( !array_key_exists( $_GET['id'], $usersList) ) {
-      include_once '../templates/no-request.php';
-      noRequestSent();
+      include_once '../templates/_no-request.php';
     
       die;
     }

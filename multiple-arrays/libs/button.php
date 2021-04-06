@@ -5,23 +5,23 @@
     $buttons = "";
     
     if( $create ) {
-      $buttons .= '<a href="../create/create.php"> <input type="button" value="Create user"/> </a>';
+      $buttons .= '<button onclick="location.href=\'../create/create.php\';"/>Create data</button> ';
     } 
     
     if ( $list ) {      
-      $buttons .= '<a href="../read/list.php"> <input type="button" value="List data"/> </a>';  
+      $buttons .= '<button onclick="location.href=\'../read/list.php\';"/>List data</button> ';  
     }
   
     if ( $update !== false ) {
-      $buttons .= "<a href='../update/edit.php";
+      $buttons .= "<button onclick='location.href=\"../update/edit.php";
       if ( is_numeric( $update ) ) { $buttons .= "?id=$update"; }      
-      $buttons .= "'> <input type='button' value='Update data'/> </a>";
+      $buttons .= "\";'>Update data</button> ";
     }
     
     if ( $delete !== false ) {
-      $buttons .= "<a href='../delete/confirm.php";
+      $buttons .= "<button onclick='location.href=\"../delete/confirm.php";
       if ( is_numeric( $delete ) ) { $buttons .= "?id=$delete"; }      
-      $buttons .= "'> <input type='button' value='Delete data'/> </a>";
+      $buttons .= "\";'>Delete data</button> ";
     }
     
     if ( $menu ) {

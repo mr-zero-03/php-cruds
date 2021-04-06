@@ -1,7 +1,6 @@
 <?php
   
   include_once '../libs/users-info.php';
-  include_once '../libs/save-user-info.php';
   include_once '../libs/button.php';
   
   $user = getUserByRequest ( $_POST );

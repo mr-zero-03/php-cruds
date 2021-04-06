@@ -2,7 +2,6 @@
 
   require_once '../read/read.php';
   include_once '../libs/users-list.php';
-  include_once '../libs/save-user-info.php';
   include_once '../libs/button.php';
  
   $user = getUserByRequest ( $_POST );

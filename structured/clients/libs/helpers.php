@@ -7,7 +7,9 @@
     $newDataText = "<u>The new data you sent was:</u> <br/>";
     $oldDataText = "<br/><br/><u>The data you have not change is:</u> <br/>";
 
-    $text = explode( "\n", $template );
+    $text = str_replace( "<ul>", " ", $template );
+    $text = str_replace( "</ul>", " ", $text );
+    $text = explode( "\n", $text );
 
     $newDataCounter=0; $oldDataCounter=0;
 
@@ -24,7 +26,7 @@
     }
 
     $newDataText .= $newDataCounter==0 ? "<br/>*You have not change anything<br/>" : "" ;
-    $oldDataText .= $oldDataCounter==0 ? "<br/>*You have change all" : "";
+    $oldDataText .= $oldDataCounter==0 ? "<br/>*You have change all<br/>" : "";
 
     $template = $newDataText . $oldDataText;
 
@@ -48,25 +50,25 @@
           $templateName = "../templates/_clients-short-list.template";
         }
         $template = file_get_contents( $templateName );
-      
+
 
         if ( $idUser === "all" ){
           $i=0;
         } else {
           $i = $idUser;
           $sizeUsersList = $idUser + 1;
-        } 
-    
+        }
+
     
         $replacedText = "";
         for ( ; $i < $sizeUsersList; $i++ ) {
-        
+
           $usersListCopy = $usersList;
-        
+
           if ( $type == "update" ) { $usersListCopy[$i] = getUserByRequest( $_POST[ 'client' ] ); }
-      
+
           $genderText = $usersListCopy[$i]['gender'] == "male" ? "Male" : "Female";
-      
+
           $usersListReplace = array(
             '%ID%' => $usersListCopy[$i]['id'],
             '%NAME%' => $usersListCopy[$i]['name'],
@@ -74,18 +76,18 @@
             '%AGE%' => $usersListCopy[$i]['age'],
             '%EMAIL%' => $usersListCopy[$i]['email']
           );
-      
+
 
           if ( ( $type == "list" ) || ( $type == "confirm" ) ) {
             if ( $type == "list" ) {
               $replacedText .= '<a href="show.php?id=' . $i . '">';
-            
-            } else if ( $type == "confirm" ) { 
-        
+
+            } else if ( $type == "confirm" ) {
+
               $replacedText .= '<input type="checkbox" id="' . $i . '" name="' . $i . '"value="on" onclick="checkboxesVerification();"';
               if ( isset( $_GET['id']) && is_numeric($_GET['id']) && $_GET['id']==$i ) { $replacedText .= "checked"; }
               $replacedText .= '>';
-          
+
               $replacedText .= '<label for="' . $i . '">';
 
             }
@@ -108,9 +110,9 @@
             } else if ( $type == "update" ) {
               $replacedText = typeUpdatePrintfUsersList( $usersList[$i], $usersListCopy[$i], $replacedText );
             }
-        
+
           }
-    
+
         }
 
         echo $replacedText;
@@ -118,9 +120,9 @@
       } else {  //User(s) do(es) not exist
         return false;  
       }
-    } else {      
+    } else {
       return false;
-    } 
+    }
   }
 
 ?>

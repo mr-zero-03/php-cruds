@@ -4,22 +4,23 @@
 
 
   function typeUpdatePrintfUsersList( $oldUser, $newUser, $template ) {
-    $userSize = count( $oldUser );
-
     $newDataText = "<u>The new data you sent was:</u> <br/>";
     $oldDataText = "<br/><br/><u>The data you have not change is:</u> <br/>";
 
     $text = explode( "\n", $template );
 
     $newDataCounter=0; $oldDataCounter=0;
-    for ( $i=1; $i < $userSize; $i++ ) {
-      if ( $newUser[$i] != $oldUser[$i] ) {  //Something have change
+
+    $i = 0;
+    foreach ( $oldUser as $key => $value ) {
+      if ( $newUser[$key] != $oldUser[$key] ) {  //Something have change
         $newDataText .= $text[$i];
         $newDataCounter=1;
       } else {  //Nothing have change
         $oldDataText .= $text[$i];
         $oldDataCounter=1;
       }
+      $i++;
     }
 
     $newDataText .= $newDataCounter==0 ? "<br/>*You have not change anything<br/>" : "" ;
@@ -62,7 +63,7 @@
 
           $usersListCopy = $usersList;
 
-          if ( $type == "update" ) { $usersListCopy[$i] = getUserByRequest( $_POST ); }
+          if ( $type == "update" ) { $usersListCopy[$i] = getUserByRequest( $_POST[ 'client' ] ); }
 
           $genderText = $usersListCopy[$i]['gender'] == "male" ? "Male" : "Female";
 

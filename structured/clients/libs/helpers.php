@@ -7,7 +7,9 @@
     $newDataText = "<u>The new data you sent was:</u> <br/>";
     $oldDataText = "<br/><br/><u>The data you have not change is:</u> <br/>";
 
-    $text = explode( "\n", $template );
+    $text = str_replace( "<ul>", " ", $template );
+    $text = str_replace( "</ul>", " ", $text );
+    $text = explode( "\n", $text );
 
     $newDataCounter=0; $oldDataCounter=0;
 
@@ -24,7 +26,7 @@
     }
 
     $newDataText .= $newDataCounter==0 ? "<br/>*You have not change anything<br/>" : "" ;
-    $oldDataText .= $oldDataCounter==0 ? "<br/>*You have change all" : "";
+    $oldDataText .= $oldDataCounter==0 ? "<br/>*You have change all<br/>" : "";
 
     $template = $newDataText . $oldDataText;
 

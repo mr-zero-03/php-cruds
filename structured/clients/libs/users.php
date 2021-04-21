@@ -29,6 +29,7 @@
 
       $user['name'] = preg_replace('/[0-9]+/', '', $user['name']);  //To avoid the user send numbers on the string 'name'
       if ( ( $user['gender'] !== 'female' ) && ( $user['gender'] !== 'male' ) ) { $user['gender'] = 'Undefined'; }
+      if ( $user['age'] < 0 ) { $user['age'] = abs( $user['age'] ); }
 
       return $user;
     } else { return false; }

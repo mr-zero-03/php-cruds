@@ -1,6 +1,6 @@
 <?php
-  include_once 'users.php';
-  include_once 'button.php';
+  include_once( 'users.php' );
+  include_once( 'button.php' );
 ?>
 
 
@@ -28,11 +28,8 @@
         <option selected value="">Choose your option</option>
 
         <?php
-          for ( $i=0; $i < $sizeUsersList; $i++ ){ ?> //Making the drop list analize how many users there are (to put the ID in the options)
-            $sendIdGet = false;
-            if ( isset($_GET['id']) && $_GET['id'] == $i ) { $sendIdGet = true; }
-
-            <option <?php if ( $sendIdGet ) { echo "selected"; }  ?> ><?= $i; ?></option>
+          for ( $i = 0; $i < $sizeUsersList; $i++ ) { ?> //Making the drop list analize how many users there are (to put the ID in the options)
+            <option <?php if ( isset($_GET['id']) && $_GET['id'] == $i ) { echo "selected"; } ?> ><?= $i; ?></option>
         <?php } ?>
 
       </select> <br/>
@@ -49,7 +46,7 @@
           function defaultValue( $parm ){  //Function to reset to the default values if the user press the reset button (to not left the inputs empty)
             global $usersList;
 
-            if ( isset( $_GET['id'] ) ) {
+            if ( isset( $_GET[ 'id' ] ) ) {
               $idDefault = $_GET['id'];
 
               switch ( $parm ){
@@ -111,17 +108,18 @@
   	  if ( selectIdObj.value != "" ) {
   	    let id = selectIdObj.value;
 
-  	    document.getElementById("name").value = usersList[id][1];  //Assigning on the inputs the user's value based on the id
+  	    document.getElementById("name").value = usersList[id]['name'];  //Assigning on the inputs the user's value based on the id
 
-  	    let gender = usersList[id][2];
+  	    let gender = usersList[id]['gender'];
   	    if ( gender == "male" ) {
   	      document.getElementById("male").checked = "checked";
   	    } else if ( gender == "female" ) {
   	      document.getElementById("female").checked = "checked";
   	    }
 
-        document.getElementById("age").value = usersList[id][3];
-        document.getElementById("email").value = usersList[id][4];
+        document.getElementById("age").value = usersList[id]['age'];
+        document.getElementById("email").value = usersList[id]['email'];
+
 
   	  } else { //If your option in the drop list is "Choose your option" all the fields should be empty
   	    document.getElementById("name").value = "";

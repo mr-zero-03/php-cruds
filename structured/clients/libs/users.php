@@ -1,6 +1,7 @@
 <?php  //THIS FILE IS THE MODEL (MVC)
+  include_once ( 'struct-name.php' );
 
-  $filename = '../db/clients.json';
+  $filename = '../db/' . $structName['forcode'] . '.json';
 
   $usersList = array();
   $sizeUsersList = 0;
@@ -45,7 +46,7 @@
 
       switch ( $type ) {
         case "new":
-		        array_push( $usersList, $user );
+          array_push( $usersList, $user );
 	      break;
 
 	      case "update":

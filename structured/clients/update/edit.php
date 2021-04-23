@@ -14,12 +14,12 @@
 <html>
 
   <head>
-    <title>Update <?= $structName; ?></title>
+    <title>Edit <?= $structName['properSingular']; ?></title>
   </head>
 
   <body>
 
-    <h2>Update <?= $structName; ?></h2> <hr/><br/>
+    <h2>Edit <?= $structName['properSingular']; ?></h2> <hr/><br/>
 
   	<p>*If you do not want to change something leave the input field still</p> <br/>
 
@@ -32,7 +32,7 @@
 
     <p>
       The last data was: <br/><br/><br/>
-      *If you want to see the full information of every <?= $structName; ?>
+      *If you want to see the full information of every <?= $structName['lowerSingular']; ?>
       <a href="../read/list.php">go to show data</a>
     </p>
 

@@ -9,17 +9,30 @@
     include_once '../templates/_no-request.php';
     die;
   }
+  
+  $pluralDelete = false;
+  if ( count ( $usersDelete ) > 1 && !isset ( $usersDelete['selectAll'] ) ) { $pluralDelete = true; }
 ?>
 
 <html>
 
   <head>
-    <title>Deleted <?= $structName; ?>(s)</title>
+    <title>Deleted 
+      <?php 
+        echo ( $pluralDelete ) ? $structName['properPlural'] : $structName['properSingular'];
+      ?>
+    </title>
   </head>
 
   <body>
 
-  	<h2>Deleted <?= $structName; ?>(s)</h2> <hr/><br/>
+  	<h2>Deleted 
+  	  <?php 
+        echo ( $pluralDelete ) ? $structName['properPlural'] : $structName['properSingular'];
+      ?>
+    </h2>
+    
+    <hr/><br/>
 
     <?php
       $usersToDeleteText = ""; $usersDontExistsText = "";
@@ -38,7 +51,14 @@
 
 
       if ( $usersToDeleteText != "" ) { ?>
-        <p>Were deleted the <?= $structName; ?>(s) with the ID(s): <br/> <?php echo "<ul>" . $usersToDeleteText . "</ul>"; ?> </p>
+        <p>
+          <?php echo ( $pluralDelete ) ? 'Were' : 'Was'; ?> deleted the 
+          <?php echo ( $pluralDelete ) ? $structName['properPlural'] : $structName['properSingular']; ?>
+          with the ID<?php echo ( $pluralDelete ) ? 's' : '' ; ?>: 
+          <br/> 
+          <?php echo "<ul>" . $usersToDeleteText . "</ul>"; ?>
+        </p>
+
       <?php } else { ?>
         <p>You have not sent valid IDs<p>
       <?php } ?>
@@ -46,7 +66,7 @@
       <br/>
 
       <?php if ( $usersDontExistsText != "" ) { ?>
-        <p>ID(s) that you have sent but does not exists: <br/> <?php echo "<ul>" . $usersDontExistsText . "</ul>"; ?> </p>
+        <p>ID<?php echo ( $pluralDelete ) ? 's' : '' ; ?> that you have sent but does not exists: <br/> <?php echo "<ul>" . $usersDontExistsText . "</ul>"; ?> </p>
       <?php } ?>
 
       <?php if ( $usersList == null ) {

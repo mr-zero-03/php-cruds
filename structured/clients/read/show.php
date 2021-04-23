@@ -16,19 +16,19 @@
 <html>
 
   <head>
-    <title>Show <?= $structName; ?></title>
+    <title>Show <?= $structName['properSingular']; ?></title>
   </head>
 
   <body>
 
-    <h2>Show <?= $structName; ?></h2> <hr/><br/>
+    <h2>Show <?= $structName['properSingular']; ?></h2> <hr/><br/>
 
     <?php
       $id = $method[ 'id' ];
 
       if ( printfUsersList("long", "show", $id) === false ) { ?>
 
-        <p>The <?= $structName; ?> you were waiting to see does not exist</p>
+        <p>The <?= $structName['lowerSingular']; ?> you were waiting to see does not exist</p>
 
       <?php }
   	?>

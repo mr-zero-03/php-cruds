@@ -1,11 +1,12 @@
 <?php
 
+  include_once ( '../libs/struct-name.php' );
   include_once( '../libs/users.php' );
   include_once( '../libs/button.php' );
 
   $user = [];
-  if ( !empty( $_POST[ 'client' ] ) ) {
-    $user = getUserByRequest ( $_POST[ 'client' ] );
+  if ( !empty( $_POST[ $structName['forcode'] ] ) ) {
+    $user = getUserByRequest ( $_POST[ $structName['forcode'] ] );
   }
 
   if ( !$user ) {

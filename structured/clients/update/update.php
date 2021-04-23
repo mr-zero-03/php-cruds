@@ -18,12 +18,12 @@
 <html>
 
   <head>
-    <title>Data <?= $structName; ?></title>
+    <title>Updated <?= $structName['properSingular']; ?></title>
   </head>
 
   <body>
 
-    <h2>Data <?= $structName; ?></h2> <hr/><br/>
+    <h2>Updated <?= $structName['properSingular']; ?></h2> <hr/><br/>
 
   	<p><b>ID: </b><?php echo $id; ?></p>
 

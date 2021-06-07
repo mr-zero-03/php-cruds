@@ -1,0 +1,5 @@
+<ul> <li> <b>ID:</b> %ID%</li>
+<li> <b>Name:</b> %NAME%</li>
+<li> <b>Gender:</b> %GENDER%</li>
+<li> <b>Age:</b> %AGE% year(s) old</li>
+<li> <b>Email:</b> %EMAIL%</li> </ul> <br/>

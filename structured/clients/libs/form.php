@@ -28,7 +28,8 @@
         <option selected value="">Choose your option</option>
 
         <?php
-          for ( $i = 0; $i < $sizeUsersList; $i++ ) { ?> //Making the drop list analize how many users there are (to put the ID in the options)
+          for ( $i = 0; $i < $sizeUsersList; $i++ ) { //Making the drop list analize how many users there are (to put the ID in the options)
+        ?>
             <option <?php if ( isset($_GET['id']) && $_GET['id'] == $i ) { echo "selected"; } ?> ><?= $i; ?></option>
         <?php } ?>
 

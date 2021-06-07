@@ -12,7 +12,7 @@
 
   <body>
 
-    <h1>CRUD For <?= $struct; ?></h1>
+    <h1>CRUD For <?= $structName['properPlural']; ?></h1>
 
     <hr/>
 

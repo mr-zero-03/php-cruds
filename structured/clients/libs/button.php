@@ -5,7 +5,7 @@
     $buttons = "";
 
     if( $create ) {
-      $buttons .= '<button onclick="location.href=\'../create/create.php\';"/>Create data</button> ';
+      $buttons .= '<button onclick="location.href=\'../create/new.php\';"/>Create data</button> ';
     }
 
     if ( $list ) {

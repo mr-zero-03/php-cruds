@@ -1,7 +1,7 @@
 <?php
 
   include '../libs/form-user.php';
-  
+
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +13,13 @@
   </head>
 
   <body>
-  	
+
   	<h2>Creating data</h2> <hr/><br/><br/>
-  	
+
   	<?php
       form("new.php", "post", "create");
   	?>
-  	
+
   </body>
 
 </html>

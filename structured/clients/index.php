@@ -24,7 +24,7 @@
 	    <li> <a href="create/new.php">Create a new <?= $struct ?></a> </li>
 	    <li> <a href="read/list.php">Read a <?= $struct ?></a> </li>
 	    <li> <a href="update/edit.php">Update a <?= $struct ?></a> </li>
-	    <li> <a href="delete/confirm.php">Delete a <?= $struct ?>(s)</a> </li>
+	    <li> <a href="delete/confirm.php">Delete a <?= $struct ?></a> </li>
     </ol>
 
     <a href="../">Go back to the Multiple Structs CRUDs selection</a>

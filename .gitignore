@@ -3,3 +3,6 @@ multiple-data/data.db
 
 one-array/data.json
 multiple-arrays/data.json
+
+structured/clients/db/
+!*/.gitkeep

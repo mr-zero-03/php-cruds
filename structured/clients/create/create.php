@@ -3,7 +3,10 @@
   include_once( '../libs/users.php' );
   include_once( '../libs/button.php' );
 
-  $user = getUserByRequest ( $_POST[ 'client' ] );
+  $user = [];
+  if ( !empty( $_POST[ 'client' ] ) ) {
+    $user = getUserByRequest ( $_POST[ 'client' ] );
+  }
 
   if ( !$user ) {
     include_once '../templates/_no-request.php';

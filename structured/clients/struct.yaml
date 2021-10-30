@@ -1,0 +1,29 @@
+---
+struct:
+  singular_name: Client
+  plural_name: Clients
+  fields:
+    id:
+      type: hidden
+      name: id
+      required: ""
+    name:
+      type: text
+      name: name
+      required: ""
+    gender:
+      type: radio
+      options:
+      - male
+      - female
+      name: gender
+      required: ""
+    age:
+      type: number
+      name: age
+      required: ""
+    email:
+      type: email
+      name: email
+      required: ""
+...

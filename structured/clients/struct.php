@@ -1,7 +1,12 @@
 <?php
 
-  $singular = 'Client';
-  $plural = 'Clients';
+  $file_name = 'struct.yaml';
+  $yaml = yaml_parse_file( $referencePath . $file_name );
+  $yamlStruct = $yaml[ 'struct' ];
+
+  //Struct Name------
+  $singular = $yamlStruct[ 'singular_name' ];
+  $plural = $yamlStruct[ 'plural_name' ];
 
   $structName = array (
     'properSingular' => $singular, //Proper Case
@@ -15,3 +20,7 @@
 
     'forcode' => strtolower ( $singular ) //Used on the code using lowercase
   );
+
+
+  //Struct Fields------
+  $struct = $yamlStruct[ 'fields' ];

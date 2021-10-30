@@ -1,8 +1,5 @@
 <?php
 
-  include_once( 'users.php' );
-
-
   function typeUpdatePrintfUsersList( $oldUser, $newUser, $template ) {
     $newDataText = "<u>The new data you sent was:</u> <br/>";
     $oldDataText = "<br/><br/><u>The data you have not change is:</u> <br/>";
@@ -124,5 +121,3 @@
       return false;
     }
   }
-
-?>

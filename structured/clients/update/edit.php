@@ -1,7 +1,6 @@
 <?php
-  require_once( '../read/read.php' );
-  include_once( '../libs/helpers.php' );
-  include_once( '../libs/form.php' );
+  include_once( '../boot.php' );
+  require_once( $referencePath . 'read/read.php' );
 
   if ( isset( $_GET[ 'id' ] ) ) {
     if ( !array_key_exists( $_GET['id'], $usersList) ) {

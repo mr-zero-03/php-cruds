@@ -1,6 +1,4 @@
 <?php  //THIS FILE IS THE MODEL (MVC)
-  include_once ( 'struct-name.php' );
-
   $filename = '../db/' . $structName['forcode'] . '.json';
 
   $usersList = array();

@@ -1,7 +1,5 @@
 <?php
-  include_once ( '../libs/struct-name.php' );
-  include_once( '../libs/users.php' );
-  include_once( '../libs/button.php' );
+  include_once( '../boot.php' );
 ?>
 
 <html>

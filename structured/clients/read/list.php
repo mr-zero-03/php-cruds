@@ -1,7 +1,6 @@
 <?php
-  require_once( 'read.php' );
-  include_once( '../libs/helpers.php' );
-  include_once( '../libs/button.php' );
+  include_once( '../boot.php' );
+  require_once( $referencePath . 'read/read.php' );
 ?>
 
 <html>

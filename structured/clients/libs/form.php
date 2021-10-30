@@ -1,9 +1,3 @@
-<?php
-  include_once( 'users.php' );
-  include_once( 'button.php' );
-?>
-
-
 <html>
 
   <?php function form( $file, $method, $type ) { ?>

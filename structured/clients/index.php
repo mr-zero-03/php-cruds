@@ -1,5 +1,5 @@
 <?php
-  include_once ( 'libs/struct-name.php' );
+  include_once( 'boot.php' );
 ?>
 
 <!DOCTYPE html>

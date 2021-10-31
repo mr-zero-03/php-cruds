@@ -1,5 +1,8 @@
 <?php
 
+  $yamlIsInstalled = ( array_search( "yaml", get_loaded_extensions() ) != false ) ? true : false;
+  if( !$yamlIsInstalled ){ echo 'Please install <a href="https://www.php.net/manual/en/book.yaml.php">YAML</a>'; die(); }
+
   $file_name = 'struct.yaml';
   $yaml = yaml_parse_file( $referencePath . $file_name );
   $yamlStruct = $yaml[ 'struct' ];

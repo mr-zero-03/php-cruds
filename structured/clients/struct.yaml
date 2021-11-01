@@ -1,7 +1,8 @@
 ---
 struct:
-  singular_name: Client
-  plural_name: Clients
+  name:
+    singular: Client
+    plural: Clients
   fields:
     id:
       type: hidden

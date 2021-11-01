@@ -16,7 +16,7 @@
 
       <h2>No file!</h2> <hr/><br/>
 
-      <p>You have not created your first <?= $structName['lowerSingular']; ?> yet, firts go ahead and create one</p> <br/>
+      <p>You have not created your first <?= $struct['name']['lowerSingular']; ?> yet, firts go ahead and create one</p> <br/>
 
       <?php createButtons( 'create', false, false, false, 'menu' ); ?>
 

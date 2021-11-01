@@ -7,12 +7,12 @@
 <html>
 
   <head>
-    <title>Creating <?= $structName['properSingular']; ?></title>
+    <title>Creating <?= $struct['name']['properSingular']; ?></title>
   </head>
 
   <body>
 
-  	<h2>Creating <?= $structName['properSingular']; ?></h2> <hr/><br/><br/>
+  	<h2>Creating <?= $struct['name']['properSingular']; ?></h2> <hr/><br/><br/>
 
   	<?php
       form("create.php", "post", "new");

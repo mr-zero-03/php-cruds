@@ -18,7 +18,7 @@
   <head>
     <title>Deleted 
       <?php 
-        echo ( $pluralDelete ) ? $structName['properPlural'] : $structName['properSingular'];
+        echo ( $pluralDelete ) ? $struct['name']['properPlural'] : $struct['name']['properSingular'];
       ?>
     </title>
   </head>
@@ -27,7 +27,7 @@
 
   	<h2>Deleted 
   	  <?php 
-        echo ( $pluralDelete ) ? $structName['properPlural'] : $structName['properSingular'];
+        echo ( $pluralDelete ) ? $struct['name']['properPlural'] : $struct['name']['properSingular'];
       ?>
     </h2>
     
@@ -52,7 +52,7 @@
       if ( $usersToDeleteText != "" ) { ?>
         <p>
           <?php echo ( $pluralDelete ) ? 'Were' : 'Was'; ?> deleted the 
-          <?php echo ( $pluralDelete ) ? $structName['properPlural'] : $structName['properSingular']; ?>
+          <?php echo ( $pluralDelete ) ? $struct['name']['properPlural'] : $struct['name']['properSingular']; ?>
           with the ID<?php echo ( $pluralDelete ) ? 's' : '' ; ?>: 
           <br/> 
           <?php echo "<ul>" . $usersToDeleteText . "</ul>"; ?>

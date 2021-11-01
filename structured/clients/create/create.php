@@ -3,8 +3,8 @@
   include_once ( '../boot.php' );
 
   $user = [];
-  if ( !empty( $_POST[ $structName['forcode'] ] ) ) {
-    $user = getUserByRequest ( $_POST[ $structName['forcode'] ] );
+  if ( !empty( $_POST[ $struct['name']['forcode'] ] ) ) {
+    $user = getUserByRequest ( $_POST[ $struct['name']['forcode'] ] );
   }
 
   if ( !$user ) {

@@ -8,22 +8,17 @@
   $yamlStruct = $yaml[ 'struct' ];
 
   //Struct Name------
-  $singular = $yamlStruct[ 'singular_name' ];
-  $plural = $yamlStruct[ 'plural_name' ];
+  if( ( !isset( $yamlStruct[ 'name' ][ 'singular' ] ) ) || ( !isset( $yamlStruct[ 'name' ][ 'plural' ] ) ) ) { echo 'ERROR: Your struct does not have a name, please give it in one. You have to, at least, add a <b>singular</b> and <b>plural</b> name'; die(); }
+  if( !isset( $yamlStruct[ 'name' ][ 'properSingular' ] ) ){ $yamlStruct[ 'name' ][ 'properSingular' ] = ucfirst( $yamlStruct[ 'name' ][ 'singular' ] ); } //Proper Case
+  if( !isset( $yamlStruct[ 'name' ][ 'properPlural' ] ) ){ $yamlStruct[ 'name' ][ 'properPlural' ] = ucfirst( $yamlStruct[ 'name' ][ 'plural' ] ); }
 
-  $structName = array (
-    'properSingular' => $singular, //Proper Case
-    'properPlural' => $plural,
+  if( !isset( $yamlStruct[ 'name' ][ 'lowerSingular' ] ) ){ $yamlStruct[ 'name' ][ 'lowerSingular' ] = strtolower( $yamlStruct[ 'name' ][ 'singular' ] ); } //lowercase
+  if( !isset( $yamlStruct[ 'name' ][ 'lowerPlural' ] ) ){ $yamlStruct[ 'name' ][ 'lowerPlural' ] = strtolower( $yamlStruct[ 'name' ][ 'plural' ] ); }
 
-    'lowerSingular' => strtolower ( $singular ), //lowercase
-    'lowerPlural' => strtolower ( $plural ),
+  if( !isset( $yamlStruct[ 'name' ][ 'upperSingular' ] ) ){ $yamlStruct[ 'name' ][ 'upperSingular' ] = strtoupper( $yamlStruct[ 'name' ][ 'singular' ] ); } //UPPERCASE
+  if( !isset( $yamlStruct[ 'name' ][ 'upperPlural' ] ) ){ $yamlStruct[ 'name' ][ 'upperPlural' ] = strtoupper( $yamlStruct[ 'name' ][ 'plural' ] ); }
 
-    'upperSingular' => strtoupper ( $singular ), //UPPERCASE
-    'upperPlural' => strtoupper ( $plural ),
+  if( !isset( $yamlStruct[ 'name' ][ 'forcode' ] ) ){ $yamlStruct[ 'name' ][ 'forcode' ] = $yamlStruct[ 'name' ][ 'lowerSingular' ]; } //Used on the code (using lowercase by default)
 
-    'forcode' => strtolower ( $singular ) //Used on the code using lowercase
-  );
-
-
-  //Struct Fields------
-  $struct = $yamlStruct[ 'fields' ];
+  //Struct------
+  $struct = $yamlStruct;

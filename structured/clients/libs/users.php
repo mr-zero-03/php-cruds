@@ -1,5 +1,5 @@
 <?php  //THIS FILE IS THE MODEL (MVC)
-  $filename = '../db/' . $structName['forcode'] . '.json';
+  $filename = '../db/' . $struct['name']['forcode'] . '.json';
 
   $usersList = array();
   $sizeUsersList = 0;

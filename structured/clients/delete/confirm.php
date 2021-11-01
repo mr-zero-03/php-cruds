@@ -6,22 +6,22 @@
 <html>
 
   <head>
-    <title>Delete <?= $structName['properPlural']; ?></title>
+    <title>Delete <?= $struct['name']['properPlural']; ?></title>
   </head>
 
   <body>
 
-  	<h2>Delete <?= $structName['properPlural']; ?></h2> <hr/><br/>
+  	<h2>Delete <?= $struct['name']['properPlural']; ?></h2> <hr/><br/>
 
   	<p>
-  	  Please, choose what <?= $structName['lowerSingular']; ?> or <?= $structName['lowerPlural']; ?> do you want to delete<br/><br/>
-  	  *If you want to see the full information of every <?= $structName['lowerSingular']; ?> <a href="../read/show.php">go to show data</a>
+  	  Please, choose what <?= $struct['name']['lowerSingular']; ?> or <?= $struct['name']['lowerPlural']; ?> do you want to delete<br/><br/>
+  	  *If you want to see the full information of every <?= $struct['name']['lowerSingular']; ?> <a href="../read/show.php">go to show data</a>
   	</p> <br/><br/>
 
 
   	<form action="delete.php" method="get" name="deleteForm">
 
-  	  <input type="checkbox" id="selectAll" name="selectAll" onclick="selectAllCheckboxes();"> <label for="selectAll"><b>Select all <?= $structName['lowerPlural']; ?></b></label> <br/><br/>
+  	  <input type="checkbox" id="selectAll" name="selectAll" onclick="selectAllCheckboxes();"> <label for="selectAll"><b>Select all <?= $struct['name']['lowerPlural']; ?></b></label> <br/><br/>
 
   	  <?php
   	    printfUsersList( "short", "confirm", "all" );

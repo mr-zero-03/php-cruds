@@ -6,16 +6,16 @@
 <html>
 
   <head>
-    <title>List <?= $structName['properPlural']; ?></title>
+    <title>List <?= $struct['name']['properPlural']; ?></title>
   </head>
 
   <body>
 
-  	<h2>List <?= $structName['properPlural']; ?></h2> <hr/><br/>
+  	<h2>List <?= $struct['name']['properPlural']; ?></h2> <hr/><br/>
 
   	<p>
       The data you sent was:<br/>
-      *Click on the <?= $structName['lowerSingular']; ?> if you want to see his data exclusively
+      *Click on the <?= $struct['name']['lowerSingular']; ?> if you want to see his data exclusively
     </p> <br/>
 
     <?php

@@ -21,4 +21,10 @@
   if( !isset( $yamlStruct[ 'name' ][ 'forcode' ] ) ){ $yamlStruct[ 'name' ][ 'forcode' ] = $yamlStruct[ 'name' ][ 'lowerSingular' ]; } //Used on the code (using lowercase by default)
 
   //Struct------
+  foreach( $yamlStruct[ 'fields' ] as $field => $attributes ) {
+    if( !array_key_exists( 'id', $attributes ) ) {
+      $yamlStruct[ 'fields' ][ $field ][ 'id' ] = strtolower( $field );
+    }
+  }
+
   $struct = $yamlStruct;

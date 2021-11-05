@@ -1,0 +1,51 @@
+---
+struct:
+  name:
+    singular: Client
+    plural: Clients
+  form:
+    separator: '<br/>'
+    size: 2
+  fields:
+    id:
+      unique: true
+      type: hidden (o readonly)
+      type_on_edit: select (o text o lo que sea)
+      name: id
+    name:
+      label:
+        pos: start
+        text: 'Name:'
+      type: text
+      name: name
+      required: true
+      conditions:
+      - regexp:[A-Za-z]*
+    gender:
+      label:
+        pos: end
+      type: radio
+      options:
+      - male
+      - female
+      name: gender
+      required: true
+      separation: true
+    age:
+      label:
+        pos: start
+        text: 'Age:'
+      type: number
+      name: age
+      required: true
+      conditions:
+      - min:3
+      - max:100
+    email:
+      label:
+        pos: start
+        text: 'Email:'
+      type: email
+      name: email
+      required: true
+...
